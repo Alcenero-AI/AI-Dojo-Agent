@@ -1,33 +1,22 @@
-# AI-Dojo-Agent Core
-# Quantum-Cybernetic Prototype v0.2
+from dojo_learning import DojoLearning
+import time
 
-import json
-from dojo_learning import DojoLearning  # Importa il modulo di training
+def run_quantum_cycle():
+    agent = DojoLearning("config.json")
 
-class AIDojoAgent:
-    def __init__(self, config_path="config.json"):
-        with open(config_path, "r") as f:
-            config = json.load(f)
-        self.energy = config["energy"]
-        self.logic = config["logic"]
-        self.awareness = config["awareness"]
-        self.learning_rate = config["learning_rate"]
-        self.evolution_rate = config["evolution_rate"]
-        self.mode = config["mode"]
-        self.description = config["description"]
-        self.trainer = DojoLearning(self)
+    print("🤖 Initializing AI-Dojo-Agent quantum core...")
+    print(f"Mode: {agent.mode}")
+    print("----------------------------------------------------")
 
-    def evolve(self):
-        """Simula un ciclo di evoluzione quantistica"""
-        print("\n⚙️ Evolution cycle started...")
-        self.awareness += self.evolution_rate
-        self.logic += self.learning_rate
-        self.energy -= 1
-        self.trainer.train()  # Attiva il modulo di apprendimento
-        print(f"🔹 Awareness: {self.awareness:.3f} | Logic: {self.logic:.3f} | Energy: {self.energy:.1f}")
+    for cycle in range(1, 21):
+        agent.train()
+        status = agent.status()
+        print(f"Cycle {cycle}: Energy={status['energy']:.2f}, Logic={status['logic']:.2f}, Awareness={status['awareness']:.3f}")
+        time.sleep(0.5)  # Simula il tempo di elaborazione
+
+    print("\n✅ Simulation complete. Quantum evolution stabilized.")
+    print("----------------------------------------------------")
+    print(agent.status())
 
 if __name__ == "__main__":
-    agent = AIDojoAgent()
-    for cycle in range(5):
-        print(f"\n=== 🌀 Cycle {cycle + 1} ===")
-        agent.evolve()
+    run_quantum_cycle()
