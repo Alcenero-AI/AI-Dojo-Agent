@@ -1,0 +1,9 @@
+{
+  "energy": 100,
+  "logic": 100,
+  "awareness": 0.1,
+  "learning_rate": 0.02,
+  "evolution_rate": 0.05,
+  "mode": "adaptive",
+  "description": "Core quantum-cybernetic balance parameters for AI-Dojo-Agent."
+}
